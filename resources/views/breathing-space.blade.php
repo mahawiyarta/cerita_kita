@@ -22,11 +22,16 @@
                         alt=""
                     >
                 </a>
-                <img
-                    src="{{ asset('icons/music.svg') }}"
-                    alt=""
-                    class="breathing-music"
+                <a
+                    href="{{ route('music') }}"
+                    class="breathing-music-link"
+                    aria-label="Pilih musik"
                 >
+                    <img
+                        src="{{ asset('icons/music.svg') }}"
+                        alt=""
+                    >
+                </a>
             </div>
             <div class="breathing-heading">
                 <h1 class="breathing-title">

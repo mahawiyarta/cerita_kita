@@ -186,13 +186,16 @@
                 >
                 <span>Psikolog</span>
             </span>
-            <span class="home-nav-item" aria-disabled="true">
+            <a
+                href="{{ route('chat-option') }}"
+                class="home-nav-item"
+            >
                 <img
                     src="{{ asset('icons/chat.svg') }}"
                     alt=""
                 >
                 <span>Chat</span>
-            </span>
+            </a>    
             <span class="home-nav-item" aria-disabled="true">
                 <img
                     src="{{ asset('icons/journal.svg') }}"

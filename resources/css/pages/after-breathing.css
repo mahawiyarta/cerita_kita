@@ -126,3 +126,14 @@
         padding-bottom: 30px;
     }
 }
+.after-breathing-chat {
+    text-decoration: none;
+    cursor: pointer;
+}
+.after-breathing-chat:hover {
+    background-color: #F0F7F2;
+}
+.after-breathing-chat:focus-visible {
+    outline: 2px solid #4D775A;
+    outline-offset: 3px;
+}

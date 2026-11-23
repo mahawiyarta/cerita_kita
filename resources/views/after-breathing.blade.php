@@ -31,13 +31,12 @@
                 >
                     Tulis Perasaan di Jurnal
                 </button>
-                <button
-                    type="button"
+                <a
+                    href="{{ route('chat-option') }}"
                     class="after-breathing-button after-breathing-chat"
-                    disabled
                 >
                     Chat dengan AI
-                </button>
+                </a>
             </div>
             <a
                 href="{{ route('home') }}"

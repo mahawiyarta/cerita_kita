@@ -1,0 +1,202 @@
+.chat-option-page {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    background-color: #F5F5F5;
+    font-family: var(--font-primary);
+}
+.chat-option-container {
+    width: 100%;
+    max-width: 393px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+}
+.chat-option-header {
+    margin: 10px 12px 0;
+    padding: 16px 18px;
+    background-color: #D7E5DB;
+}
+.chat-option-header h1 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #315F43;
+}
+.chat-option-content {
+    padding: 16px 12px 110px;
+}
+.chat-option-heading {
+    margin-bottom: 16px;
+    text-align: center;
+}
+.chat-option-title {
+    margin: 0 0 8px;
+    color: #315F43;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px;
+}
+.chat-option-description {
+    max-width: 320px;
+    margin: 0 auto;
+    color: #414942;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 19px;
+}
+.chat-mode-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.chat-mode-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 255px;
+    padding: 14px 16px 12px;
+    border: 1px solid #E4EAE6;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+    box-sizing: border-box;
+}
+.chat-mode-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+.chat-mode-primary-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #EAF4F6;
+}
+.chat-mode-primary-icon img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+.chat-mode-card.advice .chat-mode-primary-icon {
+    background-color: #FFDDD8;
+}
+.chat-mode-decoration {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    opacity: 0.35;
+}
+.chat-mode-name {
+    margin: 0 0 8px;
+    color: #0D1C2E;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 23px;
+}
+.chat-mode-text {
+    margin: 0 0 18px;
+    color: #414942;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+}
+.chat-mode-button {
+    width: 100%;
+    min-height: 44px;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background-color: #4D775A;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    font-family: var(--font-primary);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.chat-mode-button:hover {
+    background-color: #3D6249;
+}
+.chat-mode-button img {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+}
+.chat-option-feedback {
+    margin: 12px 0 0;
+    font-size: 12px;
+    text-align: center;
+    color: #718096;
+}
+.chat-option-feedback:empty {
+    display: none;
+}
+.chat-option-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    width: 100%;
+    max-width: 393px;
+    min-height: 68px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 6px;
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    border-top: 1px solid #E5E5E5;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.06);
+}
+.chat-option-nav-item {
+    min-width: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: #777777;
+    font-size: 10px;
+    text-decoration: none;
+}
+.chat-option-nav-item img {
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
+}
+.chat-option-nav-item.active {
+    color: #4D775A;
+    font-weight: 600;
+}
+.chat-mode-button:focus-visible,
+.chat-option-nav-item:focus-visible {
+    outline: 2px solid #4D775A;
+    outline-offset: 3px;
+}
+@media (max-width: 360px) {
+    .chat-option-header {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+    .chat-option-content {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .chat-mode-card {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+}

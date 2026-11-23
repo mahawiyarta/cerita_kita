@@ -13,6 +13,7 @@ export default defineConfig({
                     'resources/css/pages/breathing-space.css',
                     'resources/css/pages/music.css',
                     'resources/css/pages/after-breathing.css',
+                    'resources/css/pages/chat-option.css',
                     'resources/js/app.js',
             ],
             refresh: true,

@@ -355,3 +355,12 @@
         font-size: 13px;
     }
 }
+.home-breathing-card {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+}
+.home-breathing-card:focus-visible {
+    outline: 3px solid #4D775A;
+    outline-offset: 3px;
+}

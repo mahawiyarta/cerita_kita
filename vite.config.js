@@ -10,6 +10,7 @@ export default defineConfig({
                     'resources/css/app.css',
                     'resources/css/pages/login.css',
                     'resources/css/pages/home.css',
+                    'resources/css/pages/breathing-space.css',
                     'resources/js/app.js',
             ],
             refresh: true,

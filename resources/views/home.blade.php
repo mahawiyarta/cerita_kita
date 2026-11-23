@@ -148,16 +148,20 @@
                 </p>
             </section>
             <section class="home-breathing-section">
-                <div class="home-breathing-card">
-                    <img
-                        src="{{ asset('images/breathing_space.png') }}"
-                        alt="Ilustrasi hutan Breathing Space"
-                        class="home-breathing-image"
-                    >
-                    <h2 class="home-breathing-title">
-                        Breathing Space
-                    </h2>
-                </div>
+            <a
+                href="{{ route('breathing-space') }}"
+                class="home-breathing-card"
+                aria-label="Masuk ke Breathing Space"
+            >
+                <img
+                    src="{{ asset('images/breathing_space2.png') }}"
+                    alt=""
+                    class="home-breathing-image"
+                >
+                <h2 class="home-breathing-title">
+                    Breathing Space
+                </h2>
+            </a>
             </section>
         </div>
         <nav
@@ -317,4 +321,5 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 </script>
+
 @endpush

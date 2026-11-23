@@ -98,6 +98,7 @@
         ></p>
     </div>
 </section>
+@include('components.modal-anonim')
 
 @endsection
 
@@ -107,6 +108,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const passwordInput = document.getElementById('password');
     const toggleButton = document.getElementById('toggle-password');
     const feedback = document.getElementById('login-feedback');
+    const anonymousButton = document.getElementById('anonymous-login-button');
+    const anonymousModal = document.getElementById('anonymous-modal');
+    const modalCloseButton = document.getElementById('anonymous-modal-close');
+    const loginForm = document.getElementById('login-form');
+    const registerLink = document.getElementById('register-link');
     toggleButton.addEventListener('click', function () {
         const isHidden = passwordInput.type === 'password';
         passwordInput.type = isHidden ? 'text' : 'password';
@@ -114,25 +120,58 @@ document.addEventListener('DOMContentLoaded', function () {
             'aria-label',
             isHidden ? 'Sembunyikan password' : 'Tampilkan password'
         );
-        toggleButton.setAttribute('aria-pressed', String(isHidden));
+        toggleButton.setAttribute(
+            'aria-pressed',
+            String(isHidden)
+        );
     });
-    document.getElementById('login-form')
-        .addEventListener('submit', function (event) {
+    loginForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        feedback.textContent =
+            'Fitur login belum terhubung ke backend.';
+    });
+    let previousFocus = null;
+    function openAnonymousModal() {
+        previousFocus = document.activeElement;
+        anonymousModal.hidden = false;
+        document.body.style.overflow = 'hidden';
+        modalCloseButton.focus();
+    }
+    function closeAnonymousModal() {
+        anonymousModal.hidden = true;
+        document.body.style.overflow = '';
+        if (previousFocus) {
+            previousFocus.focus();
+        }
+    }
+    anonymousButton.addEventListener('click', function () {
+        openAnonymousModal();
+    });
+    modalCloseButton.addEventListener('click', function () {
+        closeAnonymousModal();
+    });
+    anonymousModal.addEventListener('click', function (event) {
+        if (event.target === anonymousModal) {
+            closeAnonymousModal();
+        }
+    });
+    document.addEventListener('keydown', function (event) {
+        if (anonymousModal.hidden) {
+            return;
+        }
+        if (event.key === 'Escape') {
+            closeAnonymousModal();
+        }
+        if (event.key === 'Tab') {
             event.preventDefault();
-            feedback.textContent =
-                'Fitur login belum terhubung ke backend.';
-        });
-    document.getElementById('anonymous-login-button')
-        .addEventListener('click', function () {
-            feedback.textContent =
-                'Modal anonim akan ditambahkan pada tahap berikutnya.';
-        });
-    document.getElementById('register-link')
-        .addEventListener('click', function (event) {
-            event.preventDefault();
-            feedback.textContent =
-                'Halaman pendaftaran belum tersedia.';
-        });
+            modalCloseButton.focus();
+        }
+    });
+    registerLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        feedback.textContent =
+            'Halaman pendaftaran belum tersedia.';
+    });
 });
 </script>
 @endpush

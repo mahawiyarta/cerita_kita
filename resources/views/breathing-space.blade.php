@@ -186,8 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
     nextButton.addEventListener('click', function () {
-        feedback.textContent =
-            'Tahap latihan berikutnya belum dibuat.';
+        window.location.href = "{{ route('after-breathing') }}";
     });
     window.addEventListener('pagehide', function () {
         clearInterval(countdownInterval);

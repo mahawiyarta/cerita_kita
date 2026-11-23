@@ -12,6 +12,7 @@ export default defineConfig({
                     'resources/css/pages/home.css',
                     'resources/css/pages/breathing-space.css',
                     'resources/css/pages/music.css',
+                    'resources/css/pages/after-breathing.css',
                     'resources/js/app.js',
             ],
             refresh: true,

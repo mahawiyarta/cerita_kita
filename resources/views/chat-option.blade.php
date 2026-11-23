@@ -47,17 +47,16 @@
                         tanpa menghakimi atau menggurui.
                         Cocok saat kamu hanya butuh didengar.
                     </p>
-                    <button
-                        type="button"
+                    <a
+                        href="{{ route('chat-interface') }}"
                         class="chat-mode-button"
-                        data-mode="vent"
                     >
                         <span>Mulai Curhat</span>
                         <img
                             src="{{ asset('icons/arrow_next.svg') }}"
                             alt=""
                         >
-                    </button>
+                    </a>
                 </article>
                 <article class="chat-mode-card advice">
                     <div class="chat-mode-icons">
@@ -82,25 +81,18 @@
                         dan mencari jalan keluar konkret.
                         Cocok saat kamu butuh perspektif baru.
                     </p>
-                    <button
-                        type="button"
+                    <a
+                        href="{{ route('chat-interface') }}"
                         class="chat-mode-button"
-                        data-mode="advice"
                     >
                         <span>Cari Solusi</span>
                         <img
                             src="{{ asset('icons/arrow_next.svg') }}"
                             alt=""
                         >
-                    </button>
+                    </a>
                 </article>
             </div>
-            <p
-                id="chat-option-feedback"
-                class="chat-option-feedback"
-                role="status"
-                aria-live="polite"
-            ></p>
         </main>
         <nav
             class="chat-option-bottom-nav"
@@ -162,28 +154,3 @@
 </section>
 
 @endsection
-
-@push('scripts')
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const modeButtons =
-        document.querySelectorAll('.chat-mode-button');
-    const feedback =
-        document.getElementById('chat-option-feedback');
-    modeButtons.forEach(function (button) {
-        button.addEventListener('click', function () {
-            const selectedMode = button.dataset.mode;
-            if (selectedMode === 'vent') {
-                feedback.textContent =
-                    'Halaman Mode Vent akan dibuat pada tahap berikutnya.';
-            } else if (selectedMode === 'advice') {
-                feedback.textContent =
-                    'Halaman Mode Advice akan dibuat pada tahap berikutnya.';
-            }
-        });
-    });
-});
-</script>
-
-@endpush

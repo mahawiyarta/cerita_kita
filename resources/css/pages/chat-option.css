@@ -200,3 +200,6 @@
         padding-right: 14px;
     }
 }
+.chat-mode-button {
+    text-decoration: none;
+}

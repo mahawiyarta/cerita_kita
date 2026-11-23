@@ -1,0 +1,267 @@
+.anima-page {
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    background-color: #F5F5F5;
+    font-family: var(--font-primary, 'Poppins', sans-serif);
+}
+.anima-container {
+    width: 100%;
+    max-width: 393px;
+    height: 100%;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.anima-header {
+    flex-shrink: 0;
+    min-height: 65px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background-color: #DCE9DF;
+}
+.anima-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 30px;
+}
+.anima-back img {
+    width: 22px;
+    height: 22px;
+}
+.anima-header-info {
+    display: flex;
+    flex-direction: column;
+}
+.anima-name {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #315F43;
+}
+.anima-online {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    color: #315F43;
+}
+.anima-online img {
+    width: 7px;
+    height: 7px;
+}
+.anima-messages {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 22px 18px 24px;
+    scrollbar-width: thin;
+}
+.anima-message {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+.anima-message.assistant {
+    justify-content: flex-start;
+}
+.anima-message.user {
+    justify-content: flex-end;
+}
+.anima-avatar {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: #E9F3F5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.anima-avatar img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+.anima-bubble {
+    max-width: 82%;
+    padding: 15px 16px 10px;
+    border-radius: 17px;
+    box-sizing: border-box;
+    font-size: 13px;
+    line-height: 20px;
+    overflow-wrap: anywhere;
+}
+.anima-message.assistant .anima-bubble {
+    background-color: #FFFFFF;
+    color: #0D1C2E;
+    border: 1px solid #E7EEEA;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.04);
+}
+.anima-message.user .anima-bubble {
+    background-color: #315F43;
+    color: #FFFFFF;
+    border: none;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.07);
+}
+.anima-bubble-text {
+    margin: 0;
+    white-space: pre-wrap;
+}
+.anima-message-time {
+    display: block;
+    margin-top: 8px;
+    text-align: right;
+    font-size: 10px;
+    color: #8C9891;
+}
+.anima-message.user .anima-message-time {
+    color: #B4D1BD;
+}
+.anima-message.is-typing .anima-bubble-text {
+    color: #82918A;
+    font-style: italic;
+}
+.anima-composer {
+    flex-shrink: 0;
+    padding: 12px 18px;
+
+    border-top: 1px solid #E8ECE9;
+    background-color: #FFFFFF;
+}
+.anima-chat-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.anima-attach {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+}
+.anima-attach img {
+    width: 23px;
+    height: 23px;
+}
+.anima-attach:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+.anima-input-wrapper {
+    flex: 1;
+    min-width: 0;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 6px 4px 18px;
+    background-color: #F9FBFC;
+    border: 1px solid #E6EDEA;
+    border-radius: 30px;
+}
+.anima-input {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #0D1C2E;
+    font-family: inherit;
+    font-size: 12px;
+}
+.anima-input::placeholder {
+    color: #8790A0;
+}
+.anima-send {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: #315F43;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.anima-send img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+.anima-send:disabled {
+    opacity: 0.5;
+    cursor: wait;
+}
+.anima-feedback {
+    margin: 0;
+    padding: 0 18px;
+    font-size: 11px;
+    color: #B04545;
+    text-align: center;
+}
+.anima-feedback:empty {
+    display: none;
+}
+.anima-bottom-nav {
+    flex-shrink: 0;
+    min-height: 66px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 7px 6px;
+    padding-bottom: max(7px, env(safe-area-inset-bottom));
+    background-color: #FFFFFF;
+    border-top: 1px solid #E5E5E5;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.04);
+}
+.anima-nav-item {
+    min-width: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: #777777;
+    font-size: 11px;
+    text-decoration: none;
+}
+.anima-nav-item img {
+    width: 23px;
+    height: 23px;
+}
+.anima-nav-item.active {
+    color: #4D775A;
+    font-weight: 600;
+}
+.anima-back:focus-visible,
+.anima-send:focus-visible,
+.anima-nav-item:focus-visible {
+    outline: 2px solid #4D775A;
+    outline-offset: 3px;
+}
+@media (max-width: 360px) {
+    .anima-messages {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    .anima-composer {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}

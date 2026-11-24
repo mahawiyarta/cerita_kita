@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeminiChatController;
-Route::view('/', 'intro')->name('intro');
+
+Route::get('/', function () {
+    return redirect()->route('login');
+})->name('intro');
+
 Route::view('/login', 'login')->name('login');
 Route::view('/home', 'home')->name('home');
 Route::view('/breathing-space', 'breathing-space')->name('breathing-space');

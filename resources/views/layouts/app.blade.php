@@ -14,11 +14,51 @@
 >
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('styles')
+<link
+    rel="manifest"
+    href="{{ asset('manifest.json') }}"
+>
+<meta
+    name="theme-color"
+    content="#D7E5DB"
+>
+<meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+>
+<meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="default"
+>
+<link
+    rel="apple-touch-icon"
+    href="{{ asset('pwa/icon-192.png') }}"
+>
 </head>
 <body>
     <main>
         @yield('content')
     </main>
     @stack('scripts')
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker
+                    .register("{{ asset('sw.js') }}")
+                    .then(function (registration) {
+                        console.log(
+                            'CeritaKita PWA aktif:',
+                            registration.scope
+                        );
+                    })
+                    .catch(function (error) {
+                        console.error(
+                            'PWA gagal didaftarkan:',
+                            error
+                        );
+                    });
+            });
+        }
+    </script>
 </body>
 </html>

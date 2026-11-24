@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <meta name="theme-color" content="#D7E5DB">
+    <title>Offline - CeritaKita</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #F5F7F5;
+            font-family: Arial, sans-serif;
+        }
+        .offline-container {
+            width: 100%;
+            max-width: 393px;
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .offline-logo {
+            width: 110px;
+            height: 110px;
+            object-fit: contain;
+            margin-bottom: 24px;
+        }
+        h1 {
+            margin: 0 0 12px;
+            color: #315F43;
+            font-size: 22px;
+        }
+        p {
+            margin: 0 0 28px;
+            color: #65776B;
+            font-size: 14px;
+            line-height: 22px;
+        }
+        button {
+            width: 100%;
+            min-height: 48px;
+            border: none;
+            border-radius: 12px;
+            background-color: #4D775A;
+            color: #FFFFFF;
+            font-size: 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <main class="offline-container">
+        <img
+            src="/pwa/icon-192.png"
+            alt="CeritaKita"
+            class="offline-logo"
+        >
+        <h1>Kamu Sedang Offline</h1>
+        <p>
+            Sepertinya koneksi internetmu terputus.
+            Periksa koneksi internet dan coba
+            kembali untuk melanjutkan CeritaKita.
+        </p>
+        <button
+            type="button"
+            onclick="window.location.reload()"
+        >
+            Coba Lagi
+        </button>
+    </main>
+</body>
+</html>

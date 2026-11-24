@@ -44,12 +44,12 @@
                 </p>
             </div>
             <div class="journal-summary-actions">
-                <button
-                    type="button"
-                    class="journal-summary-button"
-                >
-                    Decision &amp; Crisis Support
-                </button>
+            <a
+                href="{{ route('decision') }}"
+                class="journal-summary-button"
+            >
+                Decision &amp; Crisis Support
+            </a>
                 <a
                     href="{{ route('chat-option') }}"
                     class="journal-summary-button"

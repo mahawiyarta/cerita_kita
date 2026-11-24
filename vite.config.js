@@ -16,6 +16,7 @@ export default defineConfig({
                     'resources/css/pages/chat-option.css',
                     'resources/css/pages/chat-interface.css',
                     'resources/css/pages/journal.css',
+                    'resources/css/pages/decision.css',
                     'resources/js/app.js',
             ],
             refresh: true,

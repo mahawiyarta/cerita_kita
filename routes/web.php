@@ -12,6 +12,7 @@ Route::view('/chat-option', 'chat-option')->name('chat-option');
 Route::view('/chat-interface', 'chat-interface')->name('chat-interface');
 Route::view('/journal', 'journal')->name('journal');
 Route::view('/journal-summary', 'journal-summary')->name('journal-summary');
+Route::view('/decision', 'decision')->name('decision');
 
 Route::post(
     '/chat/curhat/send',

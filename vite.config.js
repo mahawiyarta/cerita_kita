@@ -16,6 +16,7 @@ export default defineConfig({
                     'resources/css/pages/chat-option.css',
                     'resources/css/pages/chat-interface.css',
                     'resources/css/pages/journal.css',
+                    'resources/css/pages/journal-summary.css',
                     'resources/css/pages/decision.css',
                     'resources/css/pages/decision-summary.css',
                     'resources/css/pages/action-plan.css',

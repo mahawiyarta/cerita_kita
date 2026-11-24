@@ -71,7 +71,7 @@ Pembagian per modul, dua orang per pasangan. Nama anggota tiap pasangan diisi se
 ## Cara setup
 
 ```bash
-git clone https://github.com/dzakiyyaahh/ceritakita.git
+git clone https://github.com/dzakiyyaahh/ceritakita.git](https://github.com/mahawiyarta/cerita_kita.git
 cd ceritakita
 composer install
 cp .env.example .env        # lalu isi DB_PASSWORD sesuai PostgreSQL di laptop Anda

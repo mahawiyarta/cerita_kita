@@ -136,16 +136,16 @@
                 >
                 <span>Chat</span>
             </a>
-            <span
+            <a
+                href="{{ route('journal') }}"
                 class="anima-nav-item"
-                aria-disabled="true"
             >
                 <img
                     src="{{ asset('icons/journal.svg') }}"
                     alt=""
                 >
                 <span>Journal</span>
-            </span>
+            </a>
             <span
                 class="anima-nav-item"
                 aria-disabled="true"

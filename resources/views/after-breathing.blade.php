@@ -24,13 +24,12 @@
                 harusnya sudah terasa sedikit lebih lega.
             </p>
             <div class="after-breathing-actions">
-                <button
-                    type="button"
+                <a
+                    href="{{ route('journal') }}"
                     class="after-breathing-button after-breathing-journal"
-                    disabled
                 >
-                    Tulis Perasaan di Jurnal
-                </button>
+                    Tulis Perasaanmu di Jurnal
+                </a>
                 <a
                     href="{{ route('chat-option') }}"
                     class="after-breathing-button after-breathing-chat"

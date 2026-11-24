@@ -10,6 +10,7 @@ Route::view('/music', 'music')->name('music');
 Route::view('/after-breathing', 'after-breathing')->name('after-breathing');
 Route::view('/chat-option', 'chat-option')->name('chat-option');
 Route::view('/chat-interface', 'chat-interface')->name('chat-interface');
+Route::view('/journal', 'journal')->name('journal');
 
 Route::post(
     '/chat/curhat/send',

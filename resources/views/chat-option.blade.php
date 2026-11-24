@@ -129,16 +129,16 @@
                 >
                 <span>Chat</span>
             </a>
-            <span
+            <a
+                href="{{ route('journal') }}"
                 class="chat-option-nav-item"
-                aria-disabled="true"
             >
                 <img
                     src="{{ asset('icons/journal.svg') }}"
                     alt=""
                 >
                 <span>Journal</span>
-            </span>
+            </a>
             <span
                 class="chat-option-nav-item"
                 aria-disabled="true"

@@ -196,13 +196,16 @@
                 >
                 <span>Chat</span>
             </a>    
-            <span class="home-nav-item" aria-disabled="true">
+            <a
+                href="{{ route('journal') }}"
+                class="home-nav-item"
+            >
                 <img
                     src="{{ asset('icons/journal.svg') }}"
                     alt=""
                 >
                 <span>Journal</span>
-            </span>
+            </a> 
             <span class="home-nav-item" aria-disabled="true">
                 <img
                     src="{{ asset('icons/profile.svg') }}"

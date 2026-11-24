@@ -15,6 +15,7 @@ export default defineConfig({
                     'resources/css/pages/after-breathing.css',
                     'resources/css/pages/chat-option.css',
                     'resources/css/pages/chat-interface.css',
+                    'resources/css/pages/journal.css',
                     'resources/js/app.js',
             ],
             refresh: true,

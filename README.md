@@ -6,11 +6,7 @@ Isi dokumen ini diambil dari Bab 1 *Software Critical Design Review Document for
 
 ## Deskripsi produk
 
-**Latar belakang.** Mahasiswa menghadapi tekanan akademik, sosial, dan finansial yang dapat memengaruhi kesehatan mental mereka. Banyak mahasiswa belum terbiasa mengenali dan mencatat kondisi emosinya sehari-hari. Di sisi lain, akses ke layanan psikolog masih terkendala biaya, proses pemesanan yang tidak praktis, serta kekhawatiran terhadap stigma dan privasi.
-
-**Tujuan.** CeritaKita membantu pengguna memantau suasana hati harian, melakukan latihan pernapasan, menulis jurnal dengan refleksi berbantuan AI, bercerita kepada chatbot, menimbang keputusan, serta memesan sesi konsultasi dengan psikolog.
-
-**Manfaat.** Mahasiswa lebih mengenali pola emosinya, memiliki ruang bercerita yang menjaga privasi melalui Mode Anonim, dan lebih mudah berkonsultasi dengan psikolog. Psikolog terbantu dalam mengelola jadwal praktik, mengonfirmasi permintaan sesi, dan mencatat hasil sesi.
+Mahasiswa menghadapi tekanan akademik, sosial, dan finansial yang dapat memengaruhi kesehatan mental mereka. Banyak mahasiswa belum terbiasa mengenali dan mencatat kondisi emosinya sehari-hari. Di sisi lain, akses ke layanan psikolog masih terkendala biaya, proses pemesanan yang tidak praktis, serta kekhawatiran terhadap stigma dan privasi. CeritaKita membantu pengguna memantau suasana hati harian, melakukan latihan pernapasan, menulis jurnal dengan refleksi berbantuan AI, bercerita kepada chatbot, menimbang keputusan, serta memesan sesi konsultasi dengan psikolog. Mahasiswa lebih mengenali pola emosinya, memiliki ruang bercerita yang menjaga privasi melalui Mode Anonim, dan lebih mudah berkonsultasi dengan psikolog. Psikolog terbantu dalam mengelola jadwal praktik, mengonfirmasi permintaan sesi, dan mencatat hasil sesi.
 
 ## Aktor
 

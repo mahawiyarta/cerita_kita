@@ -239,23 +239,24 @@
 }
 .journal-save-button {
     width: 100%;
-    min-height: 52px;
-    display: flex;
+    min-height: 54px;
+    border: none;
+    border-radius: 14px;
+    background: #5c8963;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 7px;
-    padding: 12px;
-    color: #FFFFFF;
-    background-color: #4D775A;
-    border: none;
-    border-radius: 13px;
-    font-family: inherit;
-    font-size: 16px;
-    font-weight: 500;
+    gap: 8px;
+    text-decoration: none;
     cursor: pointer;
 }
-.journal-save-button:hover {
-    background-color: #3D6249;
+.journal-save-button img {
+    width: 18px;
+    height: 18px;
+    display: block;
 }
 .journal-save-button:disabled {
     opacity: 0.65;

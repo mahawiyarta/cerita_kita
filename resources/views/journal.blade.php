@@ -167,14 +167,16 @@
                     kamu mengisi minimal 5 entri jurnal.
                 </p>
             </div>
-            <button
-                type="button"
-                id="journal-save-button"
+            <a
+                href="{{ route('journal-summary') }}"
                 class="journal-save-button"
             >
                 <span>Simpan Refleksi</span>
-                <span aria-hidden="true">&#10148;</span>
-            </button>
+                <img
+                    src="{{ asset('icons/arrow_next.svg') }}"
+                    alt=""
+                >
+            </a> 
             <p
                 id="journal-save-feedback"
                 class="journal-save-feedback"

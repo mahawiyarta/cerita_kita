@@ -58,39 +58,171 @@ Pembagian per modul, dua orang per pasangan. Nama anggota tiap pasangan diisi se
 
 ## Teknologi
 
-- PHP 8.2 atau lebih baru, Laravel 12, Eloquent ORM, pola MVC
-- PostgreSQL
-- Composer, Node.js dan npm (Vite)
+- Backend: PHP 8.2+, Laravel 12, dan arsitektur MVC
+- Frontend: Laravel Blade, HTML5, CSS3, JavaScript, dan Tailwind CSS
+- Build Tools: Vite, Node.js, dan npm
+- Dependency Management: Composer
+- AI Integration: Google Gemini API untuk chatbot Anima AI
+- Progressive Web App (PWA): Web App Manifest dan Service Worker
+- Testing & Public Access: Cloudflare Quick Tunnel (HTTPS)
+- Version Control: Git dan GitHub
 
 ## Cara setup
 
+### 1. Clone Repository
+
+Pastikan PHP 8.2+, Composer, Node.js, npm, dan Git sudah terinstal.
+
 ```bash
-git clone https://github.com/dzakiyyaahh/ceritakita.git](https://github.com/mahawiyarta/cerita_kita.git
-cd ceritakita
+git clone https://github.com/mahawiyarta/cerita_kita.git cerita_kita-blade
+cd cerita_kita-blade
+```
+
+### 2. Install Dependencies
+
+Install dependency Laravel dan frontend:
+
+```bash
 composer install
-cp .env.example .env        # lalu isi DB_PASSWORD sesuai PostgreSQL di laptop Anda
+npm install
+```
+
+### 3. Konfigurasi Environment
+
+Salin file `.env.example` menjadi `.env`.
+
+Untuk Windows PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Kemudian generate application key Laravel:
+
+```bash
 php artisan key:generate
-createdb -U postgres ceritakita
-psql -U postgres -d ceritakita -f database/sql/ceritakita_v1_schema.sql
-npm install && npm run dev
+```
+
+Sesuaikan konfigurasi dasar pada file `.env`:
+
+```dotenv
+APP_NAME=CeritaKita
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://127.0.0.1:8000
+
+SESSION_DRIVER=file
+CACHE_STORE=file
+QUEUE_CONNECTION=sync
+```
+
+Pengaturan `APP_DEBUG=true` hanya untuk pengembangan lokal. Gunakan `APP_DEBUG=false` ketika aplikasi dibagikan melalui internet.
+
+### 4. Konfigurasi Gemini AI
+
+CeritaKita menggunakan Google Gemini API untuk fitur chatbot Anima AI.
+
+Tambahkan konfigurasi berikut pada `.env`:
+
+```dotenv
+GEMINI_API_KEY=masukkan_api_key_anda
+GEMINI_MODEL=nama_model_gemini_yang_tersedia
+```
+
+API key diperoleh melalui Google AI Studio. Gunakan model yang tersedia untuk akun dan API yang digunakan.
+
+**Penting:** Jangan membagikan API key atau mengunggah file `.env` ke GitHub.
+
+### 5. Menjalankan Aplikasi Secara Lokal
+
+Jalankan Laravel pada terminal pertama:
+
+```bash
 php artisan serve
 ```
 
+Jalankan Vite pada terminal kedua:
+
+```bash
+npm run dev
+```
+
+Buka aplikasi melalui browser:
+
+```text
+http://127.0.0.1:8000/login
+```
+
+### 6. Akses Melalui Cloudflare Quick Tunnel (Opsional)
+
+Cloudflare Quick Tunnel digunakan untuk menguji CeritaKita melalui perangkat lain menggunakan URL HTTPS sementara.
+
+Pastikan `cloudflared` sudah terinstal.
+
+Hentikan `npm run dev`, kemudian build aset frontend:
+
+```bash
+npm run build
+```
+
+Pastikan file `public/hot` tidak ada agar Laravel menggunakan aset hasil build.
+
+Atur `.env`:
+
+```dotenv
+APP_DEBUG=false
+```
+
+Kemudian jalankan:
+
+```bash
+php artisan optimize:clear
+php artisan serve --host=127.0.0.1 --port=8000
+```
+
+Pada terminal terpisah:
+
+```bash
+cloudflared tunnel --url http://127.0.0.1:8000
+```
+
+Cloudflare akan menghasilkan URL HTTPS dengan domain `trycloudflare.com` yang dapat diakses melalui HP atau perangkat lain.
+
+**Catatan:** Laptop, server Laravel, dan Cloudflare Tunnel harus tetap aktif. URL bersifat sementara dan dapat berubah saat tunnel dijalankan ulang. Gunakan data dummy karena aplikasi masih dalam tahap prototype.
+
+---
+
 ## Database
 
-Struktur database versi 1 ada di `database/sql/`:
+CeritaKita dirancang menggunakan PostgreSQL dengan Eloquent ORM sebagai bagian dari pengembangan backend.
 
-- `ceritakita_v1_schema.sql`: skrip `CREATE TABLE` (41 tabel), dipakai untuk impor.
-- `ceritakita_v1.sql`: hasil export `pg_dump` dari struktur yang sama.
+Dokumentasi rancangan database versi 1 tersedia pada folder `database/sql/`, jika sudah disertakan dalam repository:
 
-Setiap class `«entity»` pada class diagram menjadi satu tabel. Perubahan struktur setelah versi 1 harus dicatat beserta alasannya.
+- `ceritakita_v1_schema.sql`: skrip pembuatan struktur database.
+- `ceritakita_v1.sql`: hasil ekspor struktur database.
 
-## Aturan kolaborasi
+Rancangan database mencakup 41 tabel berdasarkan class `«entity»` pada class diagram.
 
-- `main` berisi kode stabil. `develop` adalah tempat integrasi. Setiap tugas dikerjakan di branch sendiri yang dibuat dari `develop`.
-- Tidak ada yang push langsung ke `main` atau `develop`. Semua kode masuk lewat Pull Request dengan minimal satu review.
-- Jangan push atau merge fitur yang belum bisa dijalankan.
-- Tulis nama pembuat di komentar setiap file atau kelas, misalnya `// Dikerjakan oleh: Jea`.
-- Tambahkan route hanya di blok modul milik pasangan Anda di `routes/web.php`.
-- Format pesan commit: `feat:`, `fix:`, `style:`, `refactor:`, `docs:`, `chore:`.
+**Status implementasi:** Integrasi database perlu disesuaikan dengan perkembangan backend. Beberapa fitur prototype, seperti Login, Journal Summary, dan daftar Psikolog, masih menggunakan data simulasi.
 
+Oleh karena itu, impor PostgreSQL tidak diwajibkan untuk menjalankan tampilan prototype saat ini, kecuali fitur backend yang digunakan sudah memerlukannya.
+
+Setiap perubahan struktur database harus didokumentasikan dan disesuaikan dengan rancangan sistem.
+
+---
+
+## Aturan Kolaborasi
+
+- Branch `main` digunakan untuk kode stabil, sedangkan `develop` digunakan sebagai tempat integrasi.
+- Setiap tugas dikembangkan pada branch terpisah yang dibuat dari `develop`.
+- Perubahan pada `main` dan `develop` dilakukan melalui Pull Request dengan minimal satu reviewer.
+- Jangan melakukan merge terhadap fitur yang belum berhasil dijalankan atau diuji.
+- Cantumkan penanggung jawab pada file atau kelas sesuai kesepakatan kelompok, misalnya `// Dikerjakan oleh: Jea`.
+- Penambahan atau perubahan route pada `routes/web.php` harus dikoordinasikan agar tidak terjadi konflik antaranggota.
+- Gunakan format pesan commit:
+  - `feat:` penambahan fitur
+  - `fix:` perbaikan bug
+  - `style:` perubahan tampilan
+  - `refactor:` perbaikan struktur kode
+  - `docs:` perubahan dokumentasi
+  - `chore:` konfigurasi atau pekerjaan pendukung

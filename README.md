@@ -1,5 +1,5 @@
 PPPL B
 
-Cerita Kita Application Web Mobile
+Cerita Kita Progressive Web Application
 
 (Kelompok 5)

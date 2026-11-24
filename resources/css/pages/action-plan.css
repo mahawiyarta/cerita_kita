@@ -1,0 +1,238 @@
+.action-plan-page {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    background-color: #F5F5F5;
+    font-family: 'Poppins', sans-serif;
+}
+.action-plan-container {
+    width: 100%;
+    max-width: 393px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+}
+.action-plan-header {
+    width: 100%;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background-color: #D7E5DB;
+    box-sizing: border-box;
+}
+.action-plan-back {
+    width: 22px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.action-plan-back img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+.action-plan-header h1 {
+    margin: 0;
+    color: #315F43;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+}
+.action-plan-content {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 26px 24px 28px;
+    box-sizing: border-box;
+}
+.action-plan-illustration {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+}
+.action-plan-illustration img {
+    display: block;
+    width: 325px;
+    max-width: 100%;
+    height: 180px;
+    object-fit: contain;
+}
+.action-plan-introduction {
+    width: 100%;
+    margin-top: 18px;
+    text-align: center;
+}
+.action-plan-title {
+    margin: 0;
+    color: #4D775A;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 25px;
+}
+.action-plan-description {
+    max-width: 310px;
+    margin: 8px auto 0;
+    color: #101010;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 17px;
+}
+.action-plan-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    padding: 14px 14px 15px;
+    border: 1px solid #B7BFB9;
+    border-radius: 17px;
+    background-color: #EFF4F1;
+    box-sizing: border-box;
+}
+.action-plan-card-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+}
+.action-plan-card-title {
+    margin: 0;
+    color: #151515;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+}
+.action-plan-badge {
+    flex-shrink: 0;
+    padding: 4px 7px;
+    border-radius: 12px;
+    background-color: #D2E8D7;
+    color: #4D775A;
+    font-size: 8px;
+    font-weight: 500;
+    line-height: 12px;
+}
+.action-plan-card-description {
+    margin: 9px 0 12px;
+    color: #222222;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 16px;
+}
+.action-plan-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0 0 14px;
+    padding: 0;
+    list-style: none;
+}
+.action-plan-benefits li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #222222;
+    font-size: 10px;
+    line-height: 16px;
+}
+.action-plan-benefits img {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+.action-plan-consultation-button {
+    width: 100%;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    padding: 7px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4D775A;
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+}
+.action-plan-consultation-button:disabled {
+    opacity: 1;
+    cursor: not-allowed;
+}
+.action-plan-home-button {
+    width: 100%;
+    min-height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 9px;
+    padding: 6px 12px;
+    border: 1px solid #A6B9AC;
+    border-radius: 24px;
+    background-color: #FFFFFF;
+    color: #4D775A;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+.action-plan-home-button:hover {
+    background-color: #F1F6F2;
+}
+.action-plan-back:focus-visible,
+.action-plan-home-button:focus-visible {
+    outline: 2px solid #4D775A;
+    outline-offset: 3px;
+}
+@media (max-width: 360px) {
+    .action-plan-content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .action-plan-title {
+        font-size: 16px;
+    }
+    .action-plan-card-title {
+        font-size: 12px;
+    }
+    .action-plan-badge {
+        font-size: 7px;
+    }
+}
+@media (max-height: 650px) {
+    .action-plan-content {
+        padding-top: 16px;
+    }
+    .action-plan-illustration {
+        margin-top: 0;
+        height: 160px;
+    }
+    .action-plan-illustration img {
+        height: 160px;
+    }
+    .action-plan-introduction {
+        margin-top: 12px;
+    }
+}
+.action-plan-consultation-button {
+    text-decoration: none;
+    cursor: pointer;
+}
+.action-plan-consultation-button:hover {
+    background-color: #315F43;
+}

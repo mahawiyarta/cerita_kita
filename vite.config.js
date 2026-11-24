@@ -18,6 +18,8 @@ export default defineConfig({
                     'resources/css/pages/journal.css',
                     'resources/css/pages/decision.css',
                     'resources/css/pages/decision-summary.css',
+                    'resources/css/pages/action-plan.css',
+                    'resources/css/pages/psikolog.css',
                     'resources/js/app.js',
             ],
             refresh: true,

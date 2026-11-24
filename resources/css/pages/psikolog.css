@@ -1,0 +1,392 @@
+.psikolog-page {
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    background-color: #F5F5F5;
+    font-family: var(
+        --font-primary,
+        'Poppins',
+        sans-serif
+    );
+}
+.psikolog-container {
+    width: 100%;
+    max-width: 393px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.psikolog-header {
+    flex-shrink: 0;
+    min-height: 57px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    background-color: #D7E5DB;
+}
+.psikolog-header h1 {
+    margin: 0;
+    color: #315F43;
+    font-size: 16px;
+    font-weight: 600;
+}
+.psikolog-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.psikolog-header-button {
+    width: 22px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+.psikolog-header-button img {
+    width: 19px;
+    height: 19px;
+    object-fit: contain;
+}
+.psikolog-header-button:disabled {
+    opacity: 1;
+    cursor: not-allowed;
+}
+.psikolog-content {
+    flex: 1;
+    min-height: 0;
+    padding: 18px 18px 24px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    background-color: #FBFCFC;
+}
+.psikolog-search {
+    margin-bottom: 15px;
+}
+.psikolog-search[hidden],
+.psikolog-card[hidden],
+.psikolog-no-results[hidden] {
+    display: none !important;
+}
+.psikolog-search input {
+    width: 100%;
+    min-height: 40px;
+    padding: 9px 14px;
+    border: 1px solid #D8E4DC;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    color: #0D1C2E;
+    font-family: inherit;
+    font-size: 12px;
+    outline: none;
+}
+.psikolog-search input:focus {
+    border-color: #4D775A;
+}
+.psikolog-progress {
+    width: 100%;
+    margin-bottom: 17px;
+}
+.psikolog-progress-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 7px;
+}
+.psikolog-step {
+    color: #315F43;
+    font-size: 10px;
+    font-weight: 600;
+}
+.psikolog-step-title {
+    color: #969D99;
+    font-size: 10px;
+    font-weight: 400;
+    text-align: right;
+}
+.psikolog-progress-track {
+    width: 100%;
+    height: 5px;
+    background-color: #E7EFE9;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.psikolog-progress-fill {
+    width: 25%;
+    height: 100%;
+    background-color: #315F43;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+.psikolog-session-types {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    margin-bottom: 20px;
+    padding: 4px;
+    background-color: #EAF4F6;
+}
+.psikolog-session-type {
+    min-height: 32px;
+    padding: 6px;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    color: #424A46;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 400;
+    cursor: pointer;
+}
+.psikolog-session-type.active {
+    background-color: #315F43;
+    color: #FFFFFF;
+    font-weight: 500;
+}
+.psikolog-location {
+    margin-bottom: 20px;
+}
+.psikolog-location-label {
+    margin: 0 0 7px;
+    color: #7B8580;
+    font-size: 10px;
+    font-weight: 500;
+}
+.psikolog-location-box {
+    width: 100%;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border: 1px solid #E4EBE6;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    color: #0D1C2E;
+    font-size: 11px;
+}
+.psikolog-location-icon {
+    width: 17px;
+    height: 19px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+.psikolog-location-box span {
+    flex: 1;
+    min-width: 0;
+}
+.psikolog-dropdown-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+.psikolog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.psikolog-card {
+    width: 100%;
+    padding: 14px;
+    border-radius: 13px;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.045);
+    box-sizing: border-box;
+}
+.psikolog-card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 13px;
+}
+.psikolog-avatar {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 9px;
+    background-color: #F5F6F6;
+}
+.psikolog-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.psikolog-avatar.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+.psikolog-avatar.placeholder img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+.psikolog-card-info {
+    flex: 1;
+    min-width: 0;
+}
+.psikolog-name-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 5px;
+    margin-bottom: 4px;
+}
+.psikolog-name {
+    margin: 0;
+    color: #0D1C2E;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 19px;
+}
+.psikolog-rating {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    flex-shrink: 0;
+    padding: 3px 5px;
+    border-radius: 10px;
+    background-color: #EAF4F5;
+    color: #315F43;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 14px;
+}
+.psikolog-rating img {
+    width: 11px;
+    height: 11px;
+    object-fit: contain;
+}
+.psikolog-specialty {
+    display: inline-block;
+    max-width: 100%;
+    padding: 3px 6px;
+    margin-bottom: 7px;
+    border-radius: 5px;
+    background-color: #E2EDFF;
+    color: #65798D;
+    font-size: 9px;
+    line-height: 13px;
+    box-sizing: border-box;
+}
+.psikolog-price {
+    margin: 0;
+    color: #A7402E;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 16px;
+}
+.psikolog-schedule-button {
+    width: 100%;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #315F43;
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.psikolog-schedule-button:hover {
+    background-color: #254D36;
+}
+.psikolog-card-feedback {
+    margin: 0;
+    color: #65798D;
+    font-size: 10px;
+    line-height: 16px;
+}
+.psikolog-card-feedback:not(:empty) {
+    margin-top: 9px;
+}
+.psikolog-no-results {
+    margin-top: 20px;
+    text-align: center;
+    color: #89928C;
+    font-size: 12px;
+}
+.psikolog-bottom-nav {
+    flex-shrink: 0;
+    min-height: 68px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 7px 6px;
+    padding-bottom: max(
+        7px,
+        env(safe-area-inset-bottom)
+    );
+    border-top: 1px solid #E5E5E5;
+    background-color: #FFFFFF;
+    box-shadow: 0 -2px 7px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+.psikolog-nav-item {
+    min-width: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: #777777;
+    font-size: 11px;
+    text-decoration: none;
+}
+.psikolog-nav-item img {
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
+}
+.psikolog-nav-item.active {
+    color: #4D775A;
+    font-weight: 600;
+}
+.psikolog-header-button:focus-visible,
+.psikolog-session-type:focus-visible,
+.psikolog-schedule-button:focus-visible,
+.psikolog-nav-item:focus-visible {
+    outline: 2px solid #4D775A;
+    outline-offset: 3px;
+}
+@media (max-width: 360px) {
+    .psikolog-content {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+    .psikolog-card {
+        padding: 12px;
+    }
+    .psikolog-card-top {
+        gap: 9px;
+    }
+    .psikolog-avatar {
+        width: 67px;
+        height: 67px;
+    }
+    .psikolog-name {
+        font-size: 13px;
+    }
+    .psikolog-price {
+        font-size: 9px;
+    }
+}

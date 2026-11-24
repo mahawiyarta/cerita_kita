@@ -14,6 +14,8 @@ Route::view('/journal', 'journal')->name('journal');
 Route::view('/journal-summary', 'journal-summary')->name('journal-summary');
 Route::view('/decision', 'decision')->name('decision');
 Route::view('/decision-summary', 'decision-summary')->name('decision-summary');
+Route::view('/action-plan', 'action-plan')->name('action-plan');
+Route::view('/psikolog', 'psikolog')->name('psikolog');
 
 Route::post(
     '/chat/curhat/send',

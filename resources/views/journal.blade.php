@@ -198,16 +198,16 @@
                 >
                 <span>Home</span>
             </a>
-            <span
+            <a
+                href="{{ route('psikolog') }}"
                 class="journal-nav-item"
-                aria-disabled="true"
             >
                 <img
                     src="{{ asset('icons/psikolog.svg') }}"
                     alt=""
                 >
                 <span>Psikolog</span>
-            </span>
+            </a>
             <a
                 href="{{ route('chat-option') }}"
                 class="journal-nav-item"

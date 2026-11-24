@@ -36,26 +36,31 @@
                 sedang dalam kondisi sulit?
             </p>
             <div class="decision-options">
-            <a
-                href="{{ route('decision-summary') }}"
-                class="decision-option"
-            >
-                <div class="decision-option-icon">
-                    <img
-                        src="{{ asset('icons/decision_icon1.svg') }}"
-                        alt=""
-                    >
-                </div>
-                <div class="decision-option-info">
-                    <h2 class="decision-option-title">
-                        Timbang &amp; Putuskan
-                    </h2>
-                    <p class="decision-option-description">
-                        Bantu saya mengambil keputusan
-                    </p>
-                </div>
-            </a>
-                <article class="decision-option">
+                <a
+                    href="{{ route('decision-summary') }}"
+                    class="decision-option"
+                    aria-label="Timbang dan Putuskan"
+                >
+                    <div class="decision-option-icon">
+                        <img
+                            src="{{ asset('icons/decision_icon1.svg') }}"
+                            alt=""
+                        >
+                    </div>
+                    <div class="decision-option-info">
+                        <h2 class="decision-option-title">
+                            Timbang &amp; Putuskan
+                        </h2>
+                        <p class="decision-option-description">
+                            Bantu saya mengambil keputusan
+                        </p>
+                    </div>
+                </a>
+                <a
+                    href="{{ route('action-plan', ['from' => 'decision']) }}"
+                    class="decision-option"
+                    aria-label="Butuh Bantuan Sekarang"
+                >
                     <div class="decision-option-icon">
                         <img
                             src="{{ asset('icons/decision_icon2.svg') }}"
@@ -71,7 +76,7 @@
                             dalam kondisi kritis
                         </p>
                     </div>
-                </article>
+                </a>
             </div>
         </main>
     </div>

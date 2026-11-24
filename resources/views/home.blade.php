@@ -179,13 +179,16 @@
                 >
                 <span>Home</span>
             </a>
-            <span class="home-nav-item" aria-disabled="true">
+            <a
+                href="{{ route('psikolog') }}"
+                class="home-nav-item"
+            >
                 <img
                     src="{{ asset('icons/psikolog.svg') }}"
                     alt=""
                 >
                 <span>Psikolog</span>
-            </span>
+            </a>
             <a
                 href="{{ route('chat-option') }}"
                 class="home-nav-item"

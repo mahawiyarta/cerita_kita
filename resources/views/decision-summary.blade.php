@@ -113,14 +113,12 @@
                 </article>
             </div>
             <div class="decision-summary-actions">
-                <button
-                    type="button"
+                <a
+                    href="{{ route('action-plan', ['from' => 'summary']) }}"
                     class="decision-summary-button"
-                    disabled
-                    title="Halaman berikutnya belum tersedia"
                 >
                     Lanjut
-                </button>
+                </a>
             </div>
         </main>
     </div>

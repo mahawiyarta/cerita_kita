@@ -20,6 +20,7 @@ export default defineConfig({
                     'resources/css/pages/decision-summary.css',
                     'resources/css/pages/action-plan.css',
                     'resources/css/pages/psikolog.css',
+                    'resources/css/pages/profile.css',
                     'resources/js/app.js',
             ],
             refresh: true,

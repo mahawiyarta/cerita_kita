@@ -315,16 +315,16 @@
                 >
                 <span>Journal</span>
             </a>
-            <span
+            <a
+                href="{{ route('profile') }}"
                 class="psikolog-nav-item"
-                aria-disabled="true"
             >
                 <img
                     src="{{ asset('icons/profile.svg') }}"
                     alt=""
                 >
                 <span>Profile</span>
-            </span>
+            </a>
         </nav>
     </div>
 </section>

@@ -209,13 +209,16 @@
                 >
                 <span>Journal</span>
             </a> 
-            <span class="home-nav-item" aria-disabled="true">
+            <a
+                href="{{ route('profile') }}"
+                class="home-nav-item"
+            >
                 <img
                     src="{{ asset('icons/profile.svg') }}"
                     alt=""
                 >
                 <span>Profile</span>
-            </span>
+            </a>
         </nav>
     </div>
 </section>

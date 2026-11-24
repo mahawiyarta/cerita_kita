@@ -36,23 +36,25 @@
                 sedang dalam kondisi sulit?
             </p>
             <div class="decision-options">
-                <article class="decision-option">
-                    <div class="decision-option-icon">
-                        <img
-                            src="{{ asset('icons/decision_icon1.svg') }}"
-                            alt=""
-                        >
-                    </div>
-                    <div class="decision-option-info">
-                        <h2 class="decision-option-title">
-                            Timbang &amp; Putuskan
-                        </h2>
-                        <p class="decision-option-description">
-                            Bantu saya mengambil
-                            keputusan
-                        </p>
-                    </div>
-                </article>
+            <a
+                href="{{ route('decision-summary') }}"
+                class="decision-option"
+            >
+                <div class="decision-option-icon">
+                    <img
+                        src="{{ asset('icons/decision_icon1.svg') }}"
+                        alt=""
+                    >
+                </div>
+                <div class="decision-option-info">
+                    <h2 class="decision-option-title">
+                        Timbang &amp; Putuskan
+                    </h2>
+                    <p class="decision-option-description">
+                        Bantu saya mengambil keputusan
+                    </p>
+                </div>
+            </a>
                 <article class="decision-option">
                     <div class="decision-option-icon">
                         <img

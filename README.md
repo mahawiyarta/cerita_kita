@@ -1,9 +1,3 @@
-PPPL B
-
-Cerita Kita Progressive Web Application
-
-(Kelompok 5)
-
 # CeritaKita
 
 Aplikasi pendamping kesehatan mental mahasiswa. Proyek mata kuliah Perancangan dan Pengembangan Perangkat Lunak (PPPL) kelas B, Institut Teknologi Sepuluh Nopember, Kelompok 5.

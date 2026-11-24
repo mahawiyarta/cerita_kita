@@ -213,7 +213,6 @@ Setiap perubahan struktur database harus didokumentasikan dan disesuaikan dengan
 - Setiap tugas dikembangkan pada branch terpisah yang dibuat dari `develop`.
 - Perubahan pada `main` dan `develop` dilakukan melalui Pull Request dengan minimal satu reviewer.
 - Jangan melakukan merge terhadap fitur yang belum berhasil dijalankan atau diuji.
-- Cantumkan penanggung jawab pada file atau kelas sesuai kesepakatan kelompok, misalnya `// Dikerjakan oleh: Jea`.
 - Penambahan atau perubahan route pada `routes/web.php` harus dikoordinasikan agar tidak terjadi konflik antaranggota.
 - Gunakan format pesan commit:
   - `feat:` penambahan fitur

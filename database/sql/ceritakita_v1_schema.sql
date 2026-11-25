@@ -1,10 +1,4 @@
--- =====================================================================
--- CeritaKita - Database versi 1 (PostgreSQL)
--- Kelompok 5 PPPL B - Institut Teknologi Sepuluh Nopember
--- Sumber: ClassDiagram_Kelompok 5.pdf (class <<entity>>) dan
---         Critical Design Review_Kelompok 5.pdf (v1.0, 3 November 2026)
---
--- Aturan pemetaan (CDR bagian 2 dan 3):
+-- Aturan pemetaan:
 --   * Setiap class <<entity>> menjadi satu tabel (nama snake_case).
 --   * Class <<valueObject>> (TrenEmosiMingguan, DataPengguna) tidak
 --     menjadi tabel karena nilainya dihitung saat ditampilkan.
@@ -17,40 +11,104 @@
 -- ---------- UC-1 Login dan Mood ----------
 
 CREATE TABLE akun_pengguna (
-    id                      bigserial    PRIMARY KEY,
-    nama                    varchar(100) NOT NULL,
-    email                   varchar(254) NOT NULL UNIQUE,
-    password_hash           varchar(255) NOT NULL,
-    peran                   varchar(20)  NOT NULL,
-    mahasiswa_terverifikasi boolean      NOT NULL DEFAULT false
+    id BIGSERIAL PRIMARY KEY,
+    nama VARCHAR(100) NOT NULL,
+    email VARCHAR(254) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    peran VARCHAR(20) NOT NULL CHECK (
+        peran IN ('mahasiswa', 'psikolog'),
+    ),
+    mahasiswa_terverifikasi BOOLEAN NOT NULL DEFAULT FALSE,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE sesi_login (
-    id            varchar(255) PRIMARY KEY,
-    akun_id       bigint       REFERENCES akun_pengguna (id),
-    is_anonymous  boolean      NOT NULL DEFAULT false,
-    ip_address    varchar(45)  NOT NULL,
-    last_activity timestamp    NOT NULL
+    id VARCHAR(255) PRIMARY KEY,
+    user_id BIGINT REFERENCES akun_pengguna(id) ON DELETE SET NULL,
+    is_anonymous BOOLEAN NOT NULL DEFAULT FALSE,
+    ip_address VARCHAR(45),
+    user_agent TEXT,
+    payload TEXT NOT NULL,
+    last_activity INTEGER NOT NULL
 );
+CREATE INDEX idx_sesi_login_user_id ON sesi_login(user_id);
+CREATE INDEX idx_sesi_login_last_activity ON sesi_login(last_activity);
 
 CREATE TABLE skala_mood (
-    id        bigserial   PRIMARY KEY,
-    nilai     smallint    NOT NULL,
-    deskripsi varchar(50) NOT NULL
+    id BIGSERIAL PRIMARY KEY,
+    nilai SMALLINT NOT NULL UNIQUE CHECK (
+        nilai BETWEEN 1 AND 5,
+    ),
+    deskripsi VARCHAR(50) NOT NULL
 );
+INSERT INTO skala_mood (nilai, deskripsi)
+VALUES
+    (1, 'Buruk'),
+    (2, 'Kurang Baik'),
+    (3, 'Netral'),
+    (4, 'Cukup Baik'),
+    (5, 'Baik');
+SELECT *
+FROM skala_mood
+ORDER BY nilai ASC;
 
 CREATE TABLE label_emosi (
-    id   bigserial   PRIMARY KEY,
-    nama varchar(50) NOT NULL
+    id BIGSERIAL PRIMARY KEY,
+    nama VARCHAR(50) NOT NULL,
+    is_utama BOOLEAN NOT NULL DEFAULT FALSE,
+    urutan SMALLINT NOT NULL DEFAULT 0,
+    CONSTRAINT chk_label_emosi_nama CHECK (
+        LENGTH(BTRIM(nama)) > 0,
+    )
 );
+CREATE UNIQUE INDEX uq_label_emosi_nama_normalized
+    ON label_emosi (LOWER(BTRIM(nama)));
+INSERT INTO label_emosi (nama, is_utama, urutan)
+VALUES
+    ('Cemas',        TRUE, 1),
+    ('Overwhelmed',  TRUE, 2),
+    ('Mati Rasa',    TRUE, 3),
+    ('Biasa Aja',    TRUE, 4),
+    ('Sedih',        FALSE, 5),
+    ('Marah',        FALSE, 6),
+    ('Lelah',        FALSE, 7),
+    ('Kesepian',     FALSE, 8),
+    ('Senang',       FALSE, 9),
+    ('Bersyukur',    FALSE, 10),
+    ('Tenang',       FALSE, 11),
+    ('Bingung',      FALSE, 12);
+SELECT *
+FROM label_emosi
+WHERE is_utama = TRUE
+ORDER BY urutan ASC;
+SELECT *
+FROM label_emosi
+WHERE is_utama = FALSE
+ORDER BY urutan ASC;
 
 CREATE TABLE catatan_mood (
-    id             bigserial PRIMARY KEY,
-    akun_id        bigint    NOT NULL REFERENCES akun_pengguna (id),
-    tanggal        date      NOT NULL,
-    skala_id       bigint    NOT NULL REFERENCES skala_mood (id),
-    label_emosi_id bigint    NOT NULL REFERENCES label_emosi (id),
-    created_at     timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+    id BIGSERIAL PRIMARY KEY,
+    akun_id BIGINT NOT NULL REFERENCES akun_pengguna(id),
+    tanggal DATE NOT NULL,
+    skala_id BIGINT NOT NULL REFERENCES skala_mood(id),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT uq_catatan_mood_akun_tanggal UNIQUE (
+        akun_id,
+        tanggal,
+    )
+);
+CREATE TABLE catatan_mood_label_emosi (
+    catatan_mood_id BIGINT NOT NULL REFERENCES catatan_mood(id) ON DELETE CASCADE,
+    label_emosi_id BIGINT NOT NULL REFERENCES label_emosi(id),
+    PRIMARY KEY (
+        catatan_mood_id,
+        label_emosi_id
+    )
+);
+CREATE INDEX idx_mood_label_emosi ON catatan_mood_label_emosi(
+    label_emosi_id,
 );
 
 CREATE TABLE streak_harian (

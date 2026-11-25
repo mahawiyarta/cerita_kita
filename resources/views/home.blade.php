@@ -11,9 +11,9 @@
 @php
     $moods = [
         ['value' => 1, 'icon' => 'emoji1.svg', 'label' => 'Buruk'],
-        ['value' => 2, 'icon' => 'emoji2.svg', 'label' => '2'],
-        ['value' => 3, 'icon' => 'emoji3.svg', 'label' => '3'],
-        ['value' => 4, 'icon' => 'emoji4.svg', 'label' => '4'],
+        ['value' => 2, 'icon' => 'emoji2.svg', 'label' => 'Kurang Baik'],
+        ['value' => 3, 'icon' => 'emoji3.svg', 'label' => 'Netral'],
+        ['value' => 4, 'icon' => 'emoji4.svg', 'label' => 'Cukup Baik'],
         ['value' => 5, 'icon' => 'emoji5.svg', 'label' => 'Baik'],
     ];
     $moodTags = [
@@ -21,6 +21,16 @@
         'Overwhelmed',
         'Mati Rasa',
         'Biasa Aja',
+    ];
+    $additionalMoodTags = [
+        'Sedih',
+        'Marah',
+        'Lelah',
+        'Kesepian',
+        'Senang',
+        'Bersyukur',
+        'Tenang',
+        'Bingung',
     ];
     $weeklyMood = [
         ['day' => 'S', 'height' => 55],
@@ -86,7 +96,9 @@
                         type="button"
                         class="home-mood-tag"
                         id="add-mood-tag"
-                        aria-label="Tambah kategori perasaan"
+                        aria-label="Lihat label emosi lainnya"
+                        aria-haspopup="dialog"
+                        aria-controls="home-mood-dialog"
                     >
                         <img
                             src="{{ asset('icons/plus.svg') }}"
@@ -96,6 +108,56 @@
                         >
                     </button>
                 </div>
+                <p
+                    id="home-selected-extra"
+                    class="home-selected-extra"
+                    aria-live="polite"
+                    hidden
+                ></p>
+                <dialog
+                    id="home-mood-dialog"
+                    class="home-mood-dialog"
+                    aria-labelledby="home-mood-dialog-title"
+                >
+                    <div class="home-mood-dialog-content">
+                        <div class="home-mood-dialog-header">
+                            <div>
+                                <h3 id="home-mood-dialog-title">
+                                    Pilih Emosi Lainnya
+                                </h3>
+                                <p>
+                                    Kamu bisa memilih lebih dari satu emosi.
+                                </p>
+                            </div>
+                            <button
+                                type="button"
+                                id="close-mood-dialog"
+                                class="home-mood-dialog-close"
+                                aria-label="Tutup pilihan emosi"
+                            >
+                                &times;
+                            </button>
+                        </div>
+                        <div class="home-mood-dialog-tags">
+                            @foreach ($additionalMoodTags as $tag)
+                                <button
+                                    type="button"
+                                    class="home-mood-tag home-extra-mood-tag"
+                                    aria-pressed="false"
+                                >
+                                    {{ $tag }}
+                                </button>
+                            @endforeach
+                        </div>
+                        <button
+                            type="button"
+                            id="finish-mood-dialog"
+                            class="home-mood-dialog-done"
+                        >
+                            Selesai
+                        </button>
+                    </div>
+                </dialog>
                 <button
                     type="button"
                     id="home-checkin-button"
@@ -275,13 +337,45 @@ document.addEventListener('DOMContentLoaded', function () {
             );
         });
     });
-    addMoodTagButton.addEventListener(
-        'click',
-        function () {
-            feedback.textContent =
-                'Fitur tambah kategori akan dibuat pada tahap berikutnya.';
+    const moodDialog =
+        document.getElementById('home-mood-dialog');
+    const closeMoodDialog =
+        document.getElementById('close-mood-dialog');
+    const finishMoodDialog =
+        document.getElementById('finish-mood-dialog');
+    const selectedExtraText =
+        document.getElementById('home-selected-extra');
+    addMoodTagButton.addEventListener('click', function () {
+        moodDialog.showModal();
+    });
+    function updateSelectedExtra() {
+        const selected = Array.from(
+            document.querySelectorAll(
+                '.home-extra-mood-tag.selected'
+            )
+        ).map(function (tag) {
+            return tag.textContent.trim();
+        });
+        if (selected.length > 0) {
+            selectedExtraText.hidden = false;
+            selectedExtraText.textContent =
+                'Emosi tambahan: ' + selected.join(', ');
+        } else {
+            selectedExtraText.hidden = true;
+            selectedExtraText.textContent = '';
         }
-    );
+    }
+    document.querySelectorAll(
+    '.home-extra-mood-tag'
+    ).forEach(function (tag) {
+    tag.addEventListener('click', updateSelectedExtra);
+    });
+    closeMoodDialog.addEventListener('click', function () {
+        moodDialog.close();
+    });
+    finishMoodDialog.addEventListener('click', function () {
+        moodDialog.close();
+    });
     function openCheckinModal() {
         previousFocus = document.activeElement;
         checkinModal.hidden = false;

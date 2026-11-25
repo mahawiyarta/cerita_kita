@@ -364,3 +364,93 @@
     outline: 3px solid #4D775A;
     outline-offset: 3px;
 }
+.home-mood-dialog {
+    width: min(92%, 420px);
+    max-height: 80vh;
+    margin: auto;
+    padding: 0;
+    border: none;
+    border-radius: 22px;
+    background: #ffffff;
+    color: #263d32;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.16);
+    overflow-y: auto;
+}
+.home-mood-dialog::backdrop {
+    background: rgba(20, 35, 27, 0.48);
+}
+.home-mood-dialog-content {
+    padding: 24px;
+}
+.home-mood-dialog-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.home-mood-dialog-header h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #263d32;
+}
+.home-mood-dialog-header p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #77867c;
+}
+.home-mood-dialog-close {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: #f0f4f0;
+    color: #263d32;
+    font-size: 24px;
+    cursor: pointer;
+}
+.home-mood-dialog-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+.home-mood-dialog-tags .home-mood-tag {
+    cursor: pointer;
+}
+.home-mood-dialog-tags .home-mood-tag.selected {
+    background: #d5e8dc;
+    border-color: #4a8062;
+    color: #285b40;
+}
+.home-mood-dialog-done {
+    width: 100%;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 14px;
+    background: #4a8062;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.home-mood-dialog-done:hover {
+    background: #396b50;
+}
+.home-selected-extra {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #4a8062;
+    line-height: 1.5;
+}
+@media (max-width: 480px) {
+    .home-mood-dialog-content {
+        padding: 20px;
+    }
+    .home-mood-dialog-header h3 {
+        font-size: 18px;
+    }
+}

@@ -126,13 +126,49 @@ CREATE TABLE streak_harian (
 -- ---------- UC-2 Pernapasan dan Musik ----------
 
 CREATE TABLE panduan_durasi_pernapasan (
-    id                   bigserial    PRIMARY KEY,
-    nama                 varchar(100) NOT NULL,
-    tarik_detik          integer      NOT NULL,
-    tahan_detik          integer      NOT NULL,
-    hembus_detik         integer      NOT NULL,
-    durasi_latihan_detik integer      NOT NULL
+    id BIGSERIAL PRIMARY KEY,
+    nama VARCHAR(100) NOT NULL,
+    tarik_detik INTEGER NOT NULL CHECK (
+        tarik_detik > 0,
+    ),
+    tahan_detik INTEGER NOT NULL DEFAULT 0 CHECK (
+        tahan_detik >= 0,
+    ),
+    hembus_detik INTEGER NOT NULL CHECK (
+        hembus_detik > 0,
+    ),
+    durasi_latihan_detik INTEGER,
+    CONSTRAINT chk_durasi_latihan CHECK (
+        durasi_latihan_detik IS NULL
+        OR durasi_latihan_detik >=
+            tarik_detik + tahan_detik + hembus_detik
+    ),
+    CONSTRAINT chk_nama_panduan CHECK (
+        LENGTH(BTRIM(nama)) > 0,
+    )
 );
+CREATE UNIQUE INDEX uq_nama_panduan_pernapasan
+ON panduan_durasi_pernapasan (
+    LOWER(BTRIM(nama))
+);
+INSERT INTO panduan_durasi_pernapasan (
+    nama,
+    tarik_detik,
+    tahan_detik,
+    hembus_detik,
+    durasi_latihan_detik
+)
+VALUES (
+    'Pernapasan Terpandu',
+    4,
+    2,
+    5,
+    NULL
+);
+ON CONFLICT DO NOTHING;
+SELECT *
+FROM panduan_durasi_pernapasan
+ORDER BY id ASC;
 
 CREATE TABLE sesi_pernapasan (
     id           bigserial   PRIMARY KEY,

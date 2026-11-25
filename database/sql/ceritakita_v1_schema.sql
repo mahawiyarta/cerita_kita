@@ -99,6 +99,7 @@ CREATE TABLE catatan_mood (
         tanggal,
     )
 );
+
 CREATE TABLE catatan_mood_label_emosi (
     catatan_mood_id BIGINT NOT NULL REFERENCES catatan_mood(id) ON DELETE CASCADE,
     label_emosi_id BIGINT NOT NULL REFERENCES label_emosi(id),
@@ -112,10 +113,14 @@ CREATE INDEX idx_mood_label_emosi ON catatan_mood_label_emosi(
 );
 
 CREATE TABLE streak_harian (
-    id               bigserial PRIMARY KEY,
-    akun_id          bigint    NOT NULL UNIQUE REFERENCES akun_pengguna (id),
-    jumlah_hari      integer   NOT NULL DEFAULT 0,
-    tanggal_terakhir date      NOT NULL
+    id BIGSERIAL PRIMARY KEY,
+    akun_id BIGINT NOT NULL UNIQUE REFERENCES akun_pengguna(id),
+    jumlah_hari INTEGER NOT NULL CHECK (
+        jumlah_hari >= 1,
+    ),
+    tanggal_terakhir DATE NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 );
 
 -- ---------- UC-2 Pernapasan dan Musik ----------

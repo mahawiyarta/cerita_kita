@@ -67,7 +67,7 @@
                             role="timer"
                             aria-live="off"
                         >
-                            5
+                            4
                         </strong>
                         <span class="breathing-seconds">
                             detik
@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
         breathingCount.textContent = currentPhase.duration;
         breathingRing.classList.remove(
             'is-inhaling',
+            'is-holding',
             'is-exhaling'
         );
         breathingRing.classList.add(

@@ -100,22 +100,27 @@
     background-color: rgba(255, 255, 255, 0.12);
     box-shadow: 0 0 0 9px rgba(255, 255, 255, 0.12);
     transform: scale(0.78);
-    transition-property: transform;
-    transition-duration: 5s;
-    transition-timing-function: ease-in-out;
     pointer-events: none;
 }
 .breathing-ring.is-inhaling::before {
     transform: scale(1.12);
-    transition-duration: 4s;
+    animation: breathing-inhale 4s ease-in-out forwards;
 }
 .breathing-ring.is-holding::before {
     transform: scale(1.12);
-    transition-duration: 0s;
+    animation: none;
 }
 .breathing-ring.is-exhaling::before {
     transform: scale(0.78);
-    transition-duration: 5s;
+    animation: breathing-exhale 5s ease-in-out forwards;
+}
+@keyframes breathing-inhale {
+    from { transform: scale(0.78); }
+    to   { transform: scale(1.12); }
+}
+@keyframes breathing-exhale {
+    from { transform: scale(1.12); }
+    to   { transform: scale(0.78); }
 }
 .breathing-ring-content {
     position: relative;

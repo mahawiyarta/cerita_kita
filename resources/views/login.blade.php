@@ -181,6 +181,11 @@ document.addEventListener('DOMContentLoaded', function () {
             modalCloseButton.focus();
         }
     });
+        registerLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        feedback.textContent =
+            'Halaman pendaftaran belum tersedia.';
+    });
 });
 </script>
 

@@ -98,8 +98,7 @@
     border: 2px solid rgba(255, 255, 255, 0.7);
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.12);
-    box-shadow:
-        0 0 0 9px rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 9px rgba(255, 255, 255, 0.12);
     transform: scale(0.78);
     transition-property: transform;
     transition-duration: 5s;
@@ -108,7 +107,11 @@
 }
 .breathing-ring.is-inhaling::before {
     transform: scale(1.12);
-    transition-duration: 5s;
+    transition-duration: 4s;
+}
+.breathing-ring.is-holding::before {
+    transform: scale(1.12);
+    transition-duration: 0s;
 }
 .breathing-ring.is-exhaling::before {
     transform: scale(0.78);

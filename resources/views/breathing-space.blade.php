@@ -120,8 +120,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const phases = [
         {
             name: 'Tarik napas',
-            duration: 5,
+            duration: 4,
             className: 'is-inhaling'
+        },
+        {
+            name: 'Tahan napas',
+            duration: 2,
+            className: 'is-holding'
         },
         {
             name: 'Hembuskan',

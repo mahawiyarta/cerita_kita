@@ -38,7 +38,7 @@ Mahasiswa menghadapi tekanan akademik, sosial, dan finansial yang dapat memengar
 | 5026231191 | Dzakiyyah Nur A. H. | @dzakiyyaahh | _belum ditambahkan_ |
 | 5026211155 | I Gede Mahawiyarta Priyadarsa | @mahawiyarta | _belum ditambahkan_ |
 | 5026221062 | Putri Salsabilla Insani | @putrisalsabillainsani | _belum ditambahkan_ |
-| 5026221064 | Ghiar Ghoniyyu Atha  Akbar | @Ghiar7 | _belum ditambahkan_ |
+| 5026221064 | Ghiar Ghoniyyu Atha Akbar | @Ghiar7 | _belum ditambahkan_ |
 | 5026231072 | Arrivo Arsa Mevano | @ipoyyyiii | _belum ditambahkan_ |
 | 5026231153 | Fachry Fariska Ilham | @fachry2005 | _belum ditambahkan_ |
 

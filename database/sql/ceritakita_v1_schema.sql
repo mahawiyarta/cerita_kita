@@ -16,7 +16,7 @@ CREATE TABLE akun_pengguna (
     email VARCHAR(254) NOT NULL UNIQUE,
     password_hash VARCHAR(255) NOT NULL,
     peran VARCHAR(20) NOT NULL CHECK (
-        peran IN ('mahasiswa', 'psikolog'),
+        peran IN ('mahasiswa', 'psikolog')
     ),
     mahasiswa_terverifikasi BOOLEAN NOT NULL DEFAULT FALSE,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -38,7 +38,7 @@ CREATE INDEX idx_sesi_login_last_activity ON sesi_login(last_activity);
 CREATE TABLE skala_mood (
     id BIGSERIAL PRIMARY KEY,
     nilai SMALLINT NOT NULL UNIQUE CHECK (
-        nilai BETWEEN 1 AND 5,
+        nilai BETWEEN 1 AND 5
     ),
     deskripsi VARCHAR(50) NOT NULL
 );
@@ -49,9 +49,6 @@ VALUES
     (3, 'Netral'),
     (4, 'Cukup Baik'),
     (5, 'Baik');
-SELECT *
-FROM skala_mood
-ORDER BY nilai ASC;
 
 CREATE TABLE label_emosi (
     id BIGSERIAL PRIMARY KEY,
@@ -59,7 +56,7 @@ CREATE TABLE label_emosi (
     is_utama BOOLEAN NOT NULL DEFAULT FALSE,
     urutan SMALLINT NOT NULL DEFAULT 0,
     CONSTRAINT chk_label_emosi_nama CHECK (
-        LENGTH(BTRIM(nama)) > 0,
+        LENGTH(BTRIM(nama)) > 0
     )
 );
 CREATE UNIQUE INDEX uq_label_emosi_nama_normalized
@@ -78,14 +75,6 @@ VALUES
     ('Bersyukur',    FALSE, 10),
     ('Tenang',       FALSE, 11),
     ('Bingung',      FALSE, 12);
-SELECT *
-FROM label_emosi
-WHERE is_utama = TRUE
-ORDER BY urutan ASC;
-SELECT *
-FROM label_emosi
-WHERE is_utama = FALSE
-ORDER BY urutan ASC;
 
 CREATE TABLE catatan_mood (
     id BIGSERIAL PRIMARY KEY,
@@ -96,7 +85,7 @@ CREATE TABLE catatan_mood (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT uq_catatan_mood_akun_tanggal UNIQUE (
         akun_id,
-        tanggal,
+        tanggal
     )
 );
 
@@ -109,18 +98,18 @@ CREATE TABLE catatan_mood_label_emosi (
     )
 );
 CREATE INDEX idx_mood_label_emosi ON catatan_mood_label_emosi(
-    label_emosi_id,
+    label_emosi_id
 );
 
 CREATE TABLE streak_harian (
     id BIGSERIAL PRIMARY KEY,
     akun_id BIGINT NOT NULL UNIQUE REFERENCES akun_pengguna(id),
     jumlah_hari INTEGER NOT NULL CHECK (
-        jumlah_hari >= 1,
+        jumlah_hari >= 1
     ),
     tanggal_terakhir DATE NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- ---------- UC-2 Pernapasan dan Musik ----------
@@ -129,13 +118,13 @@ CREATE TABLE panduan_durasi_pernapasan (
     id BIGSERIAL PRIMARY KEY,
     nama VARCHAR(100) NOT NULL,
     tarik_detik INTEGER NOT NULL CHECK (
-        tarik_detik > 0,
+        tarik_detik > 0
     ),
     tahan_detik INTEGER NOT NULL DEFAULT 0 CHECK (
-        tahan_detik >= 0,
+        tahan_detik >= 0
     ),
     hembus_detik INTEGER NOT NULL CHECK (
-        hembus_detik > 0,
+        hembus_detik > 0
     ),
     durasi_latihan_detik INTEGER,
     CONSTRAINT chk_durasi_latihan CHECK (
@@ -144,7 +133,7 @@ CREATE TABLE panduan_durasi_pernapasan (
             tarik_detik + tahan_detik + hembus_detik
     ),
     CONSTRAINT chk_nama_panduan CHECK (
-        LENGTH(BTRIM(nama)) > 0,
+        LENGTH(BTRIM(nama)) > 0
     )
 );
 CREATE UNIQUE INDEX uq_nama_panduan_pernapasan
@@ -164,11 +153,8 @@ VALUES (
     2,
     5,
     NULL
-);
+)
 ON CONFLICT DO NOTHING;
-SELECT *
-FROM panduan_durasi_pernapasan
-ORDER BY id ASC;
 
 CREATE TABLE sesi_pernapasan (
     id           bigserial   PRIMARY KEY,
